@@ -47,12 +47,12 @@ export const skillsData = [
   {
     category: 'Frameworks & Tools',
     icon: Server,
-    skills: ['React', 'Spring Boot', 'Flask', 'Hibernate', 'Bootstrap', 'Git', 'GitHub', 'Docker', 'Jenkins', 'Maven']
+    skills: ['React', 'Spring Boot', 'Flask', 'Hibernate', 'Bootstrap', 'Git', 'GitHub', 'Docker', 'Jenkins', 'Maven','Postman']
   },
   {
     category: 'Core Competencies',
     icon: Cog,
-    skills: ['OOP', 'Data Structures & Algorithms', 'REST API', 'Agile', 'CI/CD', 'Cloud Computing (AWS)']
+    skills: ['OOP', 'Data Structures & Algorithms', 'REST API', 'Design Patterns','Agile', 'CI/CD', 'Cloud Computing (AWS)']
   },
   {
     category: 'Soft Skills',
