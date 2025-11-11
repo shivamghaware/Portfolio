@@ -23,7 +23,7 @@ const Header = () => {
             <span className="font-bold font-headline text-lg">shivamghaware</span>
           </Link>
         </div>
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium pr-4">
           {navItems.map((item) => (
             <Link key={item.label} href={item.href} className="transition-colors hover:text-primary">
               {item.label}
