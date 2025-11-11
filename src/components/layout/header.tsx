@@ -19,7 +19,7 @@ const Header = () => {
       <div className="container flex h-14 items-center">
         <Link href="/" className="flex items-center space-x-2 mr-6">
           <Code className="h-6 w-6 text-primary" />
-          <span className="font-bold font-headline text-lg">DevFolio</span>
+          <span className="font-bold font-headline text-lg">shivamghaware</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           {navItems.map((item) => (

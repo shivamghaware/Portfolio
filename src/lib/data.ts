@@ -2,69 +2,69 @@ import { Github, Linkedin, Mail, Code, Server, Cog, Users } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export const aboutData = {
-  name: "Alex Doe",
-  title: "Aspiring Software Developer",
-  bio: `A passionate and aspiring software developer with a knack for creating dynamic and user-friendly web applications. Eager to leverage my skills in React, Next.js, and modern web technologies to build innovative solutions. I am a quick learner and a collaborative team player, always excited to take on new challenges and grow as a developer.`,
+  name: "Shivam Ghaware",
+  title: "Aspiring Backend & Full-Stack Developer",
+  bio: `An IT graduate with experience in cloud computing and full-stack development. Strong foundation in Java, OOP, DSA, and databases, with a passion for backend systems and scalable architectures. Experienced with Spring Boot, React, and AWS services, and always eager to learn, collaborate, and build efficient, maintainable solutions.`,
   avatar: PlaceHolderImages.find(img => img.id === 'profile-picture')
 };
 
 export const projectsData = [
   {
     id: 1,
-    title: 'E-commerce Platform',
-    description: 'A full-featured e-commerce website with product listings, user authentication, and a shopping cart, built with the MERN stack.',
+    title: 'Product Catalog System',
+    description: 'A RESTful backend application for managing product catalogs with CRUD functionality and clean architecture principles for scalability and maintainability.',
     image: PlaceHolderImages.find(img => img.id === 'project-1'),
-    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
-    githubUrl: 'https://github.com',
+    tags: ['Java', 'Spring Boot', 'Hibernate', 'H2 Database', 'Maven', 'React'],
+    githubUrl: 'https://github.com/shivamghaware',
     liveUrl: '#',
   },
   {
     id: 2,
-    title: 'Task Management App',
-    description: 'A responsive task management application that allows users to create, organize, and track their daily tasks efficiently.',
+    title: 'Box Office Collection Prediction',
+    description: 'A machine learning model to predict movie revenue using Scikit-learn and NLTK, with data preprocessing, feature engineering, and NLP-based feature extraction.',
     image: PlaceHolderImages.find(img => img.id === 'project-2'),
-    tags: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL'],
-    githubUrl: 'https://github.com',
+    tags: ['Python', 'Scikit-learn', 'NLTK', 'Machine Learning'],
+    githubUrl: 'https://github.com/shivamghaware',
     liveUrl: '#',
   },
   {
     id: 3,
-    title: 'Portfolio Website',
-    description: 'This very portfolio website, designed to showcase my skills and projects in a sleek, modern, and interactive way.',
+    title: 'Recipe Blog Site',
+    description: 'A secure recipe management platform with authentication, authorization, and role-based access control using Flask and MongoDB.',
     image: PlaceHolderImages.find(img => img.id === 'project-3'),
-    tags: ['Next.js', 'React', 'Tailwind CSS', 'shadcn/ui'],
-    githubUrl: 'https://github.com',
+    tags: ['Python', 'Flask', 'MongoDB'],
+    githubUrl: 'https://github.com/shivamghaware',
     liveUrl: '#',
   },
 ];
 
 export const skillsData = [
-    {
-        category: 'Programming Languages',
-        icon: Code,
-        skills: ['JavaScript (ES6+)', 'TypeScript', 'Python', 'HTML5', 'CSS3/SASS']
-    },
-    {
-        category: 'Frameworks & Libraries',
-        icon: Server,
-        skills: ['React', 'Next.js', 'Node.js', 'Express.js', 'Redux', 'Jest']
-    },
-    {
-        category: 'Tools & Platforms',
-        icon: Cog,
-        skills: ['Git & GitHub', 'Docker', 'Webpack', 'Vercel', 'Postman', 'Figma']
-    },
-    {
-        category: 'Soft Skills',
-        icon: Users,
-        skills: ['Problem Solving', 'Team Collaboration', 'Agile Methodologies', 'Effective Communication', 'Adaptability']
-    }
+  {
+    category: 'Programming Languages & Databases',
+    icon: Code,
+    skills: ['Java', 'Python', 'C++', 'JavaScript', 'MySQL', 'PostgreSQL', 'MongoDB']
+  },
+  {
+    category: 'Frameworks & Tools',
+    icon: Server,
+    skills: ['React', 'Spring Boot', 'Flask', 'Hibernate', 'Bootstrap', 'Git', 'GitHub', 'Docker', 'Jenkins', 'Maven']
+  },
+  {
+    category: 'Core Competencies',
+    icon: Cog,
+    skills: ['OOP', 'Data Structures & Algorithms', 'REST API', 'Agile', 'CI/CD', 'Cloud Computing (AWS)']
+  },
+  {
+    category: 'Soft Skills',
+    icon: Users,
+    skills: ['Problem Solving', 'Quick Learning', 'Adaptability', 'Communication', 'Team Collaboration']
+  }
 ];
 
 export const contactData = {
-    email: "alex.doe@email.com",
-    socials: [
-        { name: "GitHub", url: "https://github.com", icon: Github },
-        { name: "LinkedIn", url: "https://linkedin.com/in/", icon: Linkedin },
-    ]
+  email: "shivamghaware3@gmail.com",
+  socials: [
+    { name: "GitHub", url: "https://github.com/shivamghaware", icon: Github },
+    { name: "LinkedIn", url: "https://linkedin.com/in/shivamghaware", icon: Linkedin },
+  ]
 };

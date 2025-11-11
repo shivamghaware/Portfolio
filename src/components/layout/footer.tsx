@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer className="border-t border-border/40 py-6">
       <div className="container text-center text-sm text-muted-foreground">
-        <p>&copy; {currentYear} DevFolio. Created by Alex Doe. All Rights Reserved.</p>
+        <p>&copy; {currentYear} shivamghaware. All Rights Reserved.</p>
       </div>
     </footer>
   );

@@ -17,8 +17,8 @@ const ContactSection = () => {
     event.preventDefault();
     // This is a dummy submission handler.
     toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
+      title: "Form temporarily unavailable.",
+description: "Please reach out through my LinkedIn or email instead. Thank you for understanding!"
     });
     (event.target as HTMLFormElement).reset();
   };
