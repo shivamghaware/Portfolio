@@ -16,8 +16,8 @@ export const projectsData = [
     description: 'A full-stack blogging platform with content creation, management, secure authentication, and a responsive modern UI with light and dark themes.',
     image: PlaceHolderImages.find(img => img.id === 'project-0'),
     tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/shivamghaware',
-    liveUrl: '#',
+    githubUrl: 'https://github.com/shivamghaware/BlogIn',
+    liveUrl: 'https://blogiinn.vercel.app/',
   },
   {
     id: 1,
