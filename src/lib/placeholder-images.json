@@ -7,6 +7,12 @@
       "imageHint": "portrait person"
     },
     {
+      "id": "project-0",
+      "description": "Screenshot of the BlogIn project.",
+      "imageUrl": "https://images.unsplash.com/photo-1583330694856-39dc8452b411?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "blogging technology"
+    },
+    {
       "id": "project-1",
       "description": "Screenshot of the first project.",
       "imageUrl": "https://images.unsplash.com/photo-1674133749734-b27ec9e1a493?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171",

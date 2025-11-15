@@ -11,6 +11,15 @@ export const aboutData = {
 
 export const projectsData = [
   {
+    id: 0,
+    title: 'BlogIn: A Full-Stack Blogging Platform',
+    description: 'A full-stack blogging platform with content creation, management, secure authentication, and a responsive modern UI with light and dark themes.',
+    image: PlaceHolderImages.find(img => img.id === 'project-0'),
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/shivamghaware',
+    liveUrl: '#',
+  },
+  {
     id: 1,
     title: 'Product Catalog System',
     description: 'A RESTful backend application for managing product catalogs with CRUD functionality and clean architecture principles for scalability and maintainability.',
