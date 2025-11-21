@@ -7,6 +7,9 @@ import { Analytics } from '@vercel/analytics/react';
 export const metadata: Metadata = {
   title: 'shivamghaware',
   description: 'A personal portfolio of fresher software developer.',
+  icons: {
+    icon: '/icon.svg',
+  },
 };
 
 export default function RootLayout({
