@@ -1,6 +1,6 @@
 # 🚀 Shivam Ghaware – Developer Portfolio
 
-Welcome to the source code of my personal **developer portfolio**, built with **Next.js**, **TypeScript**, and **Firebase**.  
+Welcome to the source code of my personal **developer portfolio**, built with **Next.js**, **TypeScript**, and **Vercel**.  
 This website showcases my projects, skills, and experience as an aspiring **Backend & Full-Stack Developer**.
 
 ---
@@ -27,12 +27,12 @@ Make sure you have Node.js and npm installed on your machine.
    ```sh
    npm run dev
    ```
-The application will be available at `http://localhost:9002`.
+The application will be available at `http://localhost:3000`.
 
 ---
 
 ## 🧩 Tech Stack
 - **Frontend:** Next.js, React, Tailwind CSS, TypeScript  
-- **Backend / Hosting:** Firebase  
+- **Backend / Hosting:** Vercel  
 - **UI Components:** shadcn/ui, Lucide Icons  
 - **Version Control:** Git & GitHub
