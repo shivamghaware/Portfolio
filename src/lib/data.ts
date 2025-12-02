@@ -26,7 +26,7 @@ export const projectsData = [
     image: PlaceHolderImages.find(img => img.id === 'project-1'),
     tags: ['Java', 'Spring Boot', 'Hibernate', 'H2 Database', 'Maven', 'React'],
     githubUrl: 'https://github.com/shivamghaware',
-    liveUrl: '#',
+    liveUrl: '',
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ export const projectsData = [
     image: PlaceHolderImages.find(img => img.id === 'project-2'),
     tags: ['Python', 'Scikit-learn', 'NLTK', 'Machine Learning'],
     githubUrl: 'https://github.com/shivamghaware',
-    liveUrl: '#',
+    liveUrl: '',
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ export const projectsData = [
     image: PlaceHolderImages.find(img => img.id === 'project-3'),
     tags: ['Python', 'Flask', 'MongoDB'],
     githubUrl: 'https://github.com/shivamghaware',
-    liveUrl: '#',
+    liveUrl: '',
   },
 ];
 
