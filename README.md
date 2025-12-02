@@ -31,6 +31,14 @@ The application will be available at `http://localhost:3000`.
 
 ---
 
+## 🎨 Customization
+
+To make this portfolio your own, you'll need to update the data file with your personal information.
+
+-   **Projects & Skills Data:** All the data for the projects and skills sections is located in `src/lib/data.ts`. Open this file and modify the `projectsData` and `skillsData` arrays to include your own projects and skills.
+
+---
+
 ## 🧩 Tech Stack
 - **Frontend:** Next.js, React, Tailwind CSS, TypeScript  
 - **Backend / Hosting:** Vercel  
