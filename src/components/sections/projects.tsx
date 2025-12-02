@@ -22,7 +22,7 @@ const ProjectsSection = () => {
           {projectsData.map((project) => (
             <Card key={project.id} className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
               {project.image && (
-                <CardContent className="p-0 relative h-48 w-full">
+                <CardContent className="p-0 relative h-40 w-full">
                   <Image
                     src={project.image.imageUrl}
                     alt={project.image.description}
