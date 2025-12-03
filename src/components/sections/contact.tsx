@@ -12,15 +12,54 @@ import React from 'react';
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const [submitting, setSubmitting] = React.useState(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // This is a dummy submission handler.
-    toast({
-      title: "Form temporarily unavailable.",
-description: "Please reach out through my LinkedIn or email instead. Thank you for understanding!"
-    });
-    (event.target as HTMLFormElement).reset();
+    setSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+    try {
+        const response = await fetch('https://formspree.io/f/xblnyezp', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            (event.target as HTMLFormElement).reset();
+            toast({
+                title: "Message sent!",
+                description: "Thank you for reaching out. I will get back to you as soon as possible."
+            });
+        } else {
+            const data = await response.json();
+            if (data.errors) {
+                 const errorMessage = data.errors.map((error: any) => error.message).join(', ');
+                 toast({
+                    title: "Oops! Something went wrong.",
+                    description: errorMessage,
+                    variant: "destructive",
+                });
+            } else {
+                toast({
+                    title: "Oops! Something went wrong.",
+                    description: "There was a problem submitting your form. Please try again.",
+                    variant: "destructive",
+                });
+            }
+        }
+    } catch(e) {
+         toast({
+            title: "Oops! Something went wrong.",
+            description: "There was a problem submitting your form. Please try again.",
+            variant: "destructive",
+        });
+    } finally {
+        setSubmitting(false);
+    }
   };
 
   return (
@@ -62,11 +101,18 @@ description: "Please reach out through my LinkedIn or email instead. Thank you f
                     <CardDescription>Or fill out this form to get in touch directly.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                        <Input type="text" placeholder="Your Name" required name="name" />
-                        <Input type="email" placeholder="Your Email" required name="email" />
-                        <Textarea placeholder="Your Message" required rows={5} name="message" />
-                        <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">Send Message</Button>
+                    <form
+                      action="https://formspree.io/f/xblnyezp"
+                      method="POST"
+                      onSubmit={handleSubmit}
+                      className="space-y-4"
+                    >
+                        <Input type="text" placeholder="Your Name" required name="name" disabled={submitting} />
+                        <Input type="email" placeholder="Your Email" required name="email" disabled={submitting} />
+                        <Textarea placeholder="Your Message" required rows={5} name="message" disabled={submitting} />
+                        <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent/90" disabled={submitting}>
+                            {submitting ? 'Sending...' : 'Send Message'}
+                        </Button>
                     </form>
                 </CardContent>
             </Card>
