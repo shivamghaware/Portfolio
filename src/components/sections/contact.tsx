@@ -67,11 +67,11 @@ const ContactSection = () => {
       <div className="container grid items-center justify-center gap-8 px-4 md:px-6">
         <div className="space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight font-headline">Get In Touch</h2>
-          <p className="max-w-[600px] mx-auto text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          <p className="max-w-[600px] mx-auto text-muted-foreground text-base sm:text-lg md:text-xl">
             I'm currently looking for new opportunities. Feel free to send me a message.
           </p>
         </div>
-        <div className="grid w-full max-w-4xl gap-8 mx-auto md:grid-cols-2">
+        <div className="grid w-full max-w-4xl gap-8 mx-auto grid-cols-1 md:grid-cols-2">
             <Card>
                 <CardHeader>
                     <CardTitle className="font-headline">Contact Information</CardTitle>

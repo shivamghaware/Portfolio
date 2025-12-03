@@ -9,25 +9,26 @@ const SkillsSection = () => {
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Skills & Expertise</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="max-w-[900px] text-muted-foreground text-base sm:text-lg md:text-xl/relaxed">
               A breakdown of my technical and soft skills.
             </p>
           </div>
         </div>
-        <div className="grid gap-8 mt-12 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 mt-12 md:grid-cols-2">
           {skillsData.map(({ category, icon: Icon, skills }) => (
             <Card key={category}>
               <CardHeader className="flex flex-row items-center gap-4">
                 <div className="bg-primary/10 p-3 rounded-full">
                    <Icon className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="font-headline">{category}</CardTitle>
+                <CardTitle className="font-headline text-lg md:text-xl">{category}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {skills.map((skill) => (
-                    <Badge key={skill} variant="default">
-                      {skill}
+                    <Badge key={skill.name} variant="default" className="flex items-center gap-2">
+                      <skill.icon className="h-4 w-4" />
+                      {skill.name}
                     </Badge>
                   ))}
                 </div>

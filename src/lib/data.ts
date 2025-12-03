@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Code, Server, Cog, Users } from 'lucide-react';
+import { Github, Linkedin, Mail, Code, Server, Cog, Users, FileCode, Database, CodeXml, Leaf, FlaskConical, Wind, GitMerge, Container, ServerCog, Package, Send, Blocks, Binary, Network, GalleryVerticalEnd, Workflow, RefreshCw, Cloud, Lightbulb, BrainCircuit, StretchHorizontal, MessagesSquare } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export const aboutData = {
@@ -52,22 +52,56 @@ export const skillsData = [
   {
     category: 'Programming Languages & Databases',
     icon: Code,
-    skills: ['Java', 'Python', 'C++', 'JavaScript', 'MySQL', 'PostgreSQL', 'MongoDB']
+    skills: [
+      { name: 'Java', icon: FileCode },
+      { name: 'Python', icon: FileCode },
+      { name: 'C++', icon: FileCode },
+      { name: 'JavaScript', icon: CodeXml },
+      { name: 'MySQL', icon: Database },
+      { name: 'PostgreSQL', icon: Database },
+      { name: 'MongoDB', icon: Database }
+    ]
   },
   {
     category: 'Frameworks & Tools',
     icon: Server,
-    skills: ['React', 'Spring Boot', 'Flask', 'Hibernate', 'Bootstrap', 'Git', 'GitHub', 'Docker', 'Jenkins', 'Maven','Postman']
+    skills: [
+      { name: 'React', icon: CodeXml },
+      { name: 'Spring Boot', icon: Leaf },
+      { name: 'Flask', icon: FlaskConical },
+      { name: 'Hibernate', icon: Database },
+      { name: 'Bootstrap', icon: Wind },
+      { name: 'Git', icon: GitMerge },
+      { name: 'GitHub', icon: Github },
+      { name: 'Docker', icon: Container },
+      { name: 'Jenkins', icon: ServerCog },
+      { name: 'Maven', icon: Package },
+      { name: 'Postman', icon: Send }
+    ]
   },
   {
     category: 'Core Competencies',
     icon: Cog,
-    skills: ['Object Oriented Programming', 'Data Structures & Algorithms', 'REST API', 'Design Patterns','Agile', 'CI/CD', 'Cloud Computing (AWS)']
+    skills: [
+      { name: 'Object Oriented Programming', icon: Blocks },
+      { name: 'Data Structures & Algorithms', icon: Binary },
+      { name: 'REST API', icon: Network },
+      { name: 'Design Patterns', icon: GalleryVerticalEnd },
+      { name: 'Agile', icon: Workflow },
+      { name: 'CI/CD', icon: RefreshCw },
+      { name: 'Cloud Computing (AWS)', icon: Cloud }
+    ]
   },
   {
     category: 'Soft Skills',
     icon: Users,
-    skills: ['Problem Solving', 'Quick Learning', 'Adaptability', 'Excellent Communication', 'Team Collaboration']
+    skills: [
+      { name: 'Problem Solving', icon: Lightbulb },
+      { name: 'Quick Learning', icon: BrainCircuit },
+      { name: 'Adaptability', icon: StretchHorizontal },
+      { name: 'Excellent Communication', icon: MessagesSquare },
+      { name: 'Team Collaboration', icon: Users }
+    ]
   }
 ];
 

@@ -18,7 +18,7 @@ const ProjectsSection = () => {
             </p>
           </div>
         </div>
-        <div className="grid gap-8 mt-12 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 mt-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {projectsData.map((project) => (
             <Card key={project.id} className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
               {project.image && (
@@ -34,8 +34,8 @@ const ProjectsSection = () => {
                 </CardContent>
               )}
               <CardHeader>
-                <CardTitle className="font-headline">{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
+                <CardTitle className="font-headline text-lg">{project.title}</CardTitle>
+                <CardDescription className="text-sm">{project.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
                 <div className="flex flex-wrap gap-2">
