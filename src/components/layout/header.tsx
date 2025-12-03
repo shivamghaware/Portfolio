@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu, Code } from "lucide-react";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -13,68 +13,104 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ];
 
+const Logo = () => (
+  <Link href="/" className="flex items-center space-x-2">
+    <Code className="h-6 w-6 text-primary" />
+    <span className="font-bold font-headline text-lg">shivamghaware</span>
+  </Link>
+);
+
+const DesktopNav = ({ activeLink, handleLinkClick }) => (
+  <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+    {navItems.map((item) => (
+      <Link
+        key={item.label}
+        href={item.href}
+        className={`transition-colors hover:text-primary ${activeLink === item.href ? 'text-primary font-bold' : ''}`}
+        onClick={(e) => handleLinkClick(e, item.href)}
+      >
+        {item.label}
+      </Link>
+    ))}
+  </nav>
+);
+
+const MobileNav = ({ open, setOpen, activeLink, handleLinkClick }) => (
+  <div className="md:hidden">
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
+        <Button variant="ghost" size="icon">
+          <Menu className="h-6 w-6" />
+          <span className="sr-only">Toggle navigation menu</span>
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="right">
+        <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+        <SheetDescription className="sr-only">A list of navigation links for the portfolio site.</SheetDescription>
+        <div className="grid gap-4 py-6">
+          <Logo />
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={`flex w-full items-center py-2 text-lg font-semibold ${activeLink === item.href ? 'text-primary' : ''}`}
+              onClick={(e) => handleLinkClick(e, item.href)}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </SheetContent>
+    </Sheet>
+  </div>
+);
+
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('#about');
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  useEffect(() => {
+    const sections = navItems.map(item => document.querySelector(item.href));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveLink(`#${entry.target.id}`);
+          }
+        });
+      },
+      { rootMargin: '-50% 0px -50% 0px' }
+    );
+    sections.forEach(section => {
+      if (section) observer.observe(section);
+    });
+    return () => {
+      sections.forEach(section => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
+  const handleLinkClick = (e, href) => {
     e.preventDefault();
+    setActiveLink(href);
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setTimeout(() => {
-      setOpen(false);
-    }, 300);
+    if (open) {
+      setTimeout(() => {
+        setOpen(false);
+      }, 300);
+    }
   };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-auto flex items-center">
-          <Link href="/" className="flex items-center space-x-2 mr-6 ml-4">
-            <Code className="h-6 w-6 text-primary" />
-            <span className="font-bold font-headline text-lg">shivamghaware</span>
-          </Link>
-        </div>
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium pr-4">
-          {navItems.map((item) => (
-            <Link key={item.label} href={item.href} className="transition-colors hover:text-primary">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="flex flex-1 items-center justify-end md:hidden">
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle navigation menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right">
-                <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-                <SheetDescription className="sr-only">
-                  A list of navigation links for the portfolio site.
-                </SheetDescription>
-              <div className="grid gap-4 py-6">
-                <Link href="/" className="flex items-center space-x-2 mb-4">
-                  <Code className="h-6 w-6 text-primary" />
-                  <span className="font-bold font-headline text-lg">shivamghaware</span>
-                </Link>
-                {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="flex w-full items-center py-2 text-lg font-semibold"
-                    onClick={(e) => handleLinkClick(e, item.href)}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
+      <div className="container flex h-14 max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Logo />
+        <DesktopNav activeLink={activeLink} handleLinkClick={handleLinkClick} />
+        <MobileNav open={open} setOpen={setOpen} activeLink={activeLink} handleLinkClick={handleLinkClick} />
       </div>
     </header>
   );
