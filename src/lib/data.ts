@@ -62,12 +62,12 @@ export const skillsData = [
   {
     category: 'Core Competencies',
     icon: Cog,
-    skills: ['OOP', 'Data Structures & Algorithms', 'REST API', 'Design Patterns','Agile', 'CI/CD', 'Cloud Computing (AWS)']
+    skills: ['Object Oriented Programming', 'Data Structures & Algorithms', 'REST API', 'Design Patterns','Agile', 'CI/CD', 'Cloud Computing (AWS)']
   },
   {
     category: 'Soft Skills',
     icon: Users,
-    skills: ['Problem Solving', 'Quick Learning', 'Adaptability', 'Communication', 'Team Collaboration']
+    skills: ['Problem Solving', 'Quick Learning', 'Adaptability', 'Excellent Communication', 'Team Collaboration']
   }
 ];
 
