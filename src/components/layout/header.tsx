@@ -4,9 +4,14 @@ import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu, Code } from "lucide-react";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, MouseEvent, Dispatch, SetStateAction } from 'react';
 
-const navItems = [
+type NavItem = {
+  label: string;
+  href: string;
+};
+
+const navItems: NavItem[] = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
@@ -20,50 +25,80 @@ const Logo = () => (
   </Link>
 );
 
-const DesktopNav = ({ activeLink, handleLinkClick }) => (
+interface NavLinkProps {
+  item: NavItem;
+  activeLink: string;
+  onClick: (e: MouseEvent<HTMLAnchorElement>, href: string) => void;
+  className?: string;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ item, activeLink, onClick, className }) => (
+  <Link
+    href={item.href}
+    className={`transition-colors hover:text-primary ${activeLink === item.href ? 'text-primary font-bold' : ''} ${className}`}
+    onClick={(e) => onClick(e, item.href)}
+  >
+    {item.label}
+  </Link>
+);
+
+interface DesktopNavProps {
+  activeLink: string;
+  handleLinkClick: (e: MouseEvent<HTMLAnchorElement>, href: string) => void;
+}
+
+const DesktopNav: React.FC<DesktopNavProps> = ({ activeLink, handleLinkClick }) => (
   <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
     {navItems.map((item) => (
-      <Link
-        key={item.label}
-        href={item.href}
-        className={`transition-colors hover:text-primary ${activeLink === item.href ? 'text-primary font-bold' : ''}`}
-        onClick={(e) => handleLinkClick(e, item.href)}
-      >
-        {item.label}
-      </Link>
+      <NavLink key={item.label} item={item} activeLink={activeLink} onClick={handleLinkClick} />
     ))}
   </nav>
 );
 
-const MobileNav = ({ open, setOpen, activeLink, handleLinkClick }) => (
-  <div className="md:hidden">
-    <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <Menu className="h-6 w-6" />
-          <span className="sr-only">Toggle navigation menu</span>
-        </Button>
-      </SheetTrigger>
-      <SheetContent side="right">
-        <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-        <SheetDescription className="sr-only">A list of navigation links for the portfolio site.</SheetDescription>
-        <div className="grid gap-4 py-6">
-          <Logo />
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className={`flex w-full items-center py-2 text-lg font-semibold ${activeLink === item.href ? 'text-primary' : ''}`}
-              onClick={(e) => handleLinkClick(e, item.href)}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </SheetContent>
-    </Sheet>
-  </div>
-);
+interface MobileNavProps {
+  open: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  activeLink: string;
+  handleLinkClick: (e: MouseEvent<HTMLAnchorElement>, href: string) => void;
+}
+
+const MobileNav: React.FC<MobileNavProps> = ({ open, setOpen, activeLink, handleLinkClick }) => {
+  const handleMobileLinkClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    handleLinkClick(e, href);
+    setTimeout(() => {
+      setOpen(false);
+    }, 300);
+  };
+
+  return (
+    <div className="md:hidden">
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetTrigger asChild>
+          <Button variant="ghost" size="icon">
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Toggle navigation menu</span>
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="right">
+          <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+          <SheetDescription className="sr-only">A list of navigation links for the portfolio site.</SheetDescription>
+          <div className="grid gap-4 py-6">
+            <Logo />
+            {navItems.map((item) => (
+              <NavLink
+                key={item.label}
+                item={item}
+                activeLink={activeLink}
+                onClick={handleMobileLinkClick}
+                className="flex w-full items-center py-2 text-lg font-semibold"
+              />
+            ))}
+          </div>
+        </SheetContent>
+      </Sheet>
+    </div>
+  );
+};
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -91,17 +126,12 @@ const Header = () => {
     };
   }, []);
 
-  const handleLinkClick = (e, href) => {
+  const handleLinkClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setActiveLink(href);
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (open) {
-      setTimeout(() => {
-        setOpen(false);
-      }, 300);
     }
   };
 
