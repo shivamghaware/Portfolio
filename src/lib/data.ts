@@ -3,8 +3,10 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export const aboutData = {
   name: "Shivam Ghaware",
-  title: "Aspiring Full-Stack Developer",
-  bio: `Hello, I am Shivam — an IT graduate passionate about building efficient, scalable, and user-friendly applications. I enjoy working across the stack, from designing clean APIs with Spring Boot to creating seamless user interfaces with React. With hands-on experience in cloud computing and modern web technologies, I’m eager to contribute, learn, and grow as a developer. I’m currently looking for opportunities to work with a software company where I can apply my skills, collaborate with talented teams, and keep pushing my boundaries as a developer.`,
+  title: "Aspiring Software Devloper",
+  bio:`I’m Shivam, a software developer who builds full-stack apps, cloud-powered solutions, and ideas that turn into real products. I love fast UIs, secure backends, clean architecture, and anything that challenges me to grow.
+If it involves creating, learning, or breaking things to rebuild them better — I’m in.`,
+  //bio: `Hello, I am Shivam — an IT graduate passionate about building efficient, scalable, and user-friendly applications. I enjoy working across the stack, from designing clean APIs with Spring Boot to creating seamless user interfaces with React. With hands-on experience in cloud computing and modern web technologies, I’m eager to contribute, learn, and grow as a developer. I’m currently looking for opportunities to work with a software company where I can apply my skills, collaborate with talented teams, and keep pushing my boundaries as a developer.`,
   avatar: PlaceHolderImages.find(img => img.id === 'profile-picture')
 };
 
