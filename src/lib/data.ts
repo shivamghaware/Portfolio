@@ -27,7 +27,7 @@ export const projectsData = [
     description: 'A RESTful backend application for managing product catalogs with CRUD functionality and clean architecture principles for scalability and maintainability.',
     image: PlaceHolderImages.find(img => img.id === 'project-1'),
     tags: ['Java', 'Spring Boot', 'Hibernate', 'H2 Database', 'Maven', 'React'],
-    githubUrl: 'https://github.com/shivamghaware/ProductCatalogSystem',
+    githubUrl: 'https://github.com/shivamghaware',
     liveUrl: '',
   },
   {
@@ -36,7 +36,7 @@ export const projectsData = [
     description: 'A machine learning model to predict movie revenue using Scikit-learn and NLTK, with data preprocessing, feature engineering, and NLP-based feature extraction.',
     image: PlaceHolderImages.find(img => img.id === 'project-2'),
     tags: ['Python', 'Scikit-learn', 'NLTK', 'Machine Learning'],
-    githubUrl: 'https://github.com/shivamghaware/MovieRevenuePrediction',
+    githubUrl: 'https://github.com/shivamghaware',
     liveUrl: '',
   },
   {
@@ -45,7 +45,7 @@ export const projectsData = [
     description: 'A secure recipe management platform with authentication, authorization, and role-based access control using Flask and MongoDB.',
     image: PlaceHolderImages.find(img => img.id === 'project-3'),
     tags: ['Python', 'Flask', 'MongoDB'],
-    githubUrl: 'https://github.com/shivamghaware/Recipe-Blog-Site',
+    githubUrl: 'https://github.com/shivamghaware',
     liveUrl: '',
   },
 ];
