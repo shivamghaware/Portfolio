@@ -8,21 +8,18 @@ const AboutSection = () => {
       <div className="container px-4 md:px-6">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="flex items-center justify-center">
-            {aboutData.avatar && (
-              <Card className="rounded-full overflow-hidden w-48 h-48 md:w-80 md:h-80 shadow-2xl shadow-primary/20 transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
-                <CardContent className="p-0">
-                  <Image
-                    src={aboutData.avatar.imageUrl}
-                    alt={aboutData.avatar.description}
-                    width={400}
-                    height={400}
-                    className="object-cover aspect-square"
-                    data-ai-hint={aboutData.avatar.imageHint}
-                    priority
-                  />
-                </CardContent>
-              </Card>
-            )}
+            <Card className="rounded-full overflow-hidden w-48 h-48 md:w-80 md:h-80 shadow-2xl shadow-primary/20 transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
+              <CardContent className="p-0">
+                <Image
+                  src="/profile-pic.jpg" // Use the local image
+                  alt="A profile picture of the site owner"
+                  width={400}
+                  height={400}
+                  className="object-cover aspect-square"
+                  priority
+                />
+              </CardContent>
+            </Card>
           </div>
           <Card className="flex flex-col justify-center space-y-4 text-center lg:items-start lg:text-left transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
             <CardHeader>
